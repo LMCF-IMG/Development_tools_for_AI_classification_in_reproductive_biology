@@ -41,12 +41,7 @@ The segmentation backbone consists of:
 A final **1×1 convolution** produces four output channels corresponding to four segmentation slots.
 
 ### Output Slots
-The network predicts:
-- Slot 1
-- Slot 2
-- Slot 3
-- Slot 4
-
+The network predicts: **Slot 1** / **Slot 2** / **Slot 3** / **Slot 4**.  
 Each slot outputs logits that are converted into an instance probability map.
 
 ## Permutation-Invariant Training
