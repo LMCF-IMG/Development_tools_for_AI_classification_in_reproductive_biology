@@ -4,6 +4,9 @@
 
 **Dr. Tomáš Venit** from the [Laboratory of Biology of the Cell Nucleus](https://www.img.cas.cz/group/pavel-hozak/), [Institute of Molecular Genetics of the Czech Academy of Sciences](https://www.img.cas.cz/en/) in Prague, Prague, Czech Republic is the PI of the MEYS–LM2023050 Czech-BioImaging project “Development of tools for AI classification in reproductive biology” and contributed to this study.
 
+Also acknowledged by the Light Microscopy Core Facility, IMG, Prague, Czech Republic, supported by MEYS – LM2023050 Czech-BioImaging, MEYS – CZ.02.1.01/0.0/0.0/18_046/0016045, and MEYS – CZ.02.01.01/00/23_015/0008205 and by institutional support from the Institute of Molecular Genetics of the Czech Academy of Sciences (RVO: 68378050) and the
+Research Program Strategy AV21 Future of Assisted Reproduction (ART) (AV21-VP38/2025) provided by the Czech Academy of Sciences. Anonymized images of human embryos were provided by Clayo Clinic, Prague.
+
 ## Overview
 
 Accurate segmentation and quantification of cells in light microscopy images remain essential yet challenging tasks in reproductive biology. Manual annotation of embryonic cells is labor-intensive, subjective, and difficult to scale for larger datasets. In this work, we present a deep learning-based pipeline for automated detection, segmentation, and quantification of human embryonic cells from microscopy images acquired during early developmental stages.  
