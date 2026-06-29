@@ -104,15 +104,18 @@ The training dataset consisted of **180 annotated embryo images equally distribu
 
 ## Inference
 
-The workflow combines a deep learning–based cell count classifier with a slot-based instance segmentation network. A ResNet18 classifier first predicts the number of cells present in the input image (K∈{1,2,4}). In parallel, a ResNet18 encoder–U-Net decoder segmentation network produces four fixed output slots, each representing a candidate cell mask. The K most relevant masks are selected according to the classifier prediction, and an ellipse is fitted to each selected mask using contour-based ellipse fitting. The resulting ellipse representations provide compact, interpretable descriptions of individual cells while suppressing spurious detections and enabling robust quantitative analysis.
+The workflow combines a deep learning–based cell count classifier with a slot-based instance segmentation network, Fig. 4. A ResNet18 classifier first predicts the number of cells present in the input image (K∈{1,2,4}). In parallel, a ResNet18 encoder–U-Net decoder segmentation network produces four fixed output slots, each representing a candidate cell mask. The K most relevant masks are selected according to the classifier prediction, and an ellipse is fitted to each selected mask using contour-based ellipse fitting. The resulting ellipse representations provide compact, interpretable descriptions of individual cells while suppressing spurious detections and enabling robust quantitative analysis.
 
 **Figure 4:** Overview of the proposed embryo cell analysis pipeline.
 <img width="9504" height="2406" alt="Figure_4-Smaller" src="https://github.com/user-attachments/assets/3c0446df-3b83-4c53-8487-9e881808f920" />
 
 ## Results
 
-Performance of the pipeline was evaluated on **1,022 microscopy images** and compared in three scenarios. **Left:** the ResNet18-based cell count classifier alone achieves 99.9% accuracy, demonstrating highly reliable prediction of the number of embryonic cells. **Center:** the slot-based segmentation network alone reaches 96.97% counting accuracy, with most errors caused by over-segmentation of two-cell embryos. **Right:** combining the count classifier with the segmentation network by selecting the top-K predicted masks according to the estimated cell count increases the overall detection accuracy to 99.61%. In addition, the fitted ellipse representation closely matches the predicted segmentation masks, achieving a **mean Dice coefficient of 0.981** and a **mean IoU of 0.964**, confirming that ellipse fitting provides an accurate and compact geometric representation of segmented embryonic cells.
+Performance of the pipeline was evaluated on **1,022 microscopy images** and compared in three scenarios, Fig. 5. **Left:** the ResNet18-based cell count classifier alone achieves 99.9% accuracy, demonstrating highly reliable prediction of the number of embryonic cells. **Center:** the slot-based segmentation network alone reaches 96.97% counting accuracy, with most errors caused by over-segmentation of two-cell embryos. **Right:** combining the count classifier with the segmentation network by selecting the top-K predicted masks according to the estimated cell count increases the overall detection accuracy to 99.61%. In addition, the fitted ellipse representation closely matches the predicted segmentation masks, achieving a **mean Dice coefficient of 0.981** and a **mean IoU of 0.964**, confirming that ellipse fitting provides an accurate and compact geometric representation of segmented embryonic cells, Fig. 6.
 
 **Figure 5:** Quantitative evaluation of the proposed pipeline.
 <img width="3682" height="856" alt="Figure_5" src="https://github.com/user-attachments/assets/3d7d6f2f-daed-44df-a49d-55c2e73b036c" />
-  
+
+**Figure 6:** Examples of segmentation of 1-, 2-, 4-cells. From left: input image, predicted probability maps, thresholded binary masks, mask overlay, and fitted ellipses. The count-aware model first predicts the cell number, then selects the top-K segmentation candidates and fits ellipses to each detected cell.
+<img width="2565" height="1323" alt="Figure_6" src="https://github.com/user-attachments/assets/8a6a7996-de0d-4035-aaad-2ceb07b4ff9f" />
+
