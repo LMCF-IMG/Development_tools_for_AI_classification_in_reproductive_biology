@@ -119,3 +119,5 @@ Performance of the pipeline was evaluated on **1,022 microscopy images** and com
 **Figure 6:** Examples of segmentation of 1-, 2-, 4-cells. From left: input image, predicted probability maps, thresholded binary masks, mask overlay, and fitted ellipses. The count-aware model first predicts the cell number, then selects the top-K segmentation candidates and fits ellipses to each detected cell.
 <img width="2565" height="1323" alt="Figure_6" src="https://github.com/user-attachments/assets/8a6a7996-de0d-4035-aaad-2ceb07b4ff9f" />
 
+## Codes
+
