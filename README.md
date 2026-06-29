@@ -77,8 +77,7 @@ Based on the predicted count \(K\), only the best \(K\) instance masks are retai
 
 The pipeline produces:
 
-1. **Instance label image** (labels 0–4)<img width="1657" height="549" alt="Figure_3" src="https://github.com/user-attachments/assets/ebb84317-90cf-4068-9a2b-f7f154c6e2a4" />
-
+1. **Instance label image** (labels 0–4)
 2. **Colorized overlay** of retained instances
 3. **Ellipse fits** derived from final segmentation masks
 4. **JSON export** containing ellipse parameters
@@ -97,7 +96,10 @@ To simplify annotation and provide biologically interpretable outputs, embryonic
 
 **Figure 2:** Examples (1-, 2-, 4-cells) of manual annotations using Fiji and Elliptical selection tools.
 <img width="2148" height="660" alt="Figure_2" src="https://github.com/user-attachments/assets/ed9227df-f723-4b57-b743-c7873113a011" />
-  
+
+**Figure 3:** Conversion of elliptical annotations into pixel polygon masks for each cell.
+<img width="1657" height="549" alt="Figure_3" src="https://github.com/user-attachments/assets/ebb84317-90cf-4068-9a2b-f7f154c6e2a4" />
+
 The training dataset consisted of 180 annotated embryo images equally distributed among one-cell, two-cell, and four-cell developmental stages. Data augmentation included rotation, scaling, and shifting transformations, while optimization employed a combined Dice and binary cross-entropy loss. During inference, segmentation candidates are filtered according to the predicted cell count using a top-K selection strategy, followed by ellipse fitting to generate the final representation.  
 
 ## Results
