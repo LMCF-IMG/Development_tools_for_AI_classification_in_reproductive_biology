@@ -111,4 +111,8 @@ The workflow combines a deep learning–based cell count classifier with a slot-
 
 ## Results
 
-The standalone counting model achieved 99.9% accuracy on a test set of 1022 images, whereas the segmentation model alone reached 96.97% accuracy. Combining both approaches significantly improved effective detection performance, yielding 99.61% accuracy. These results demonstrate that integrating count-aware prediction with slot-based segmentation provides a robust and efficient framework for automated quantitative analysis of embryonic microscopy data.  
+Performance of the pipeline was evaluated on **1,022 microscopy images** and compared in three scenarios. **Left:** the ResNet18-based cell count classifier alone achieves 99.9% accuracy, demonstrating highly reliable prediction of the number of embryonic cells. **Center:** the slot-based segmentation network alone reaches 96.97% counting accuracy, with most errors caused by over-segmentation of two-cell embryos. **Right:** combining the count classifier with the segmentation network by selecting the top-K predicted masks according to the estimated cell count increases the overall detection accuracy to 99.61%. In addition, the fitted ellipse representation closely matches the predicted segmentation masks, achieving a **mean Dice coefficient of 0.981** and a **mean IoU of 0.964**, confirming that ellipse fitting provides an accurate and compact geometric representation of segmented embryonic cells.
+
+**Figure 5:** Quantitative evaluation of the proposed pipeline.
+<img width="3682" height="856" alt="Figure_5" src="https://github.com/user-attachments/assets/3d7d6f2f-daed-44df-a49d-55c2e73b036c" />
+  
