@@ -15,7 +15,7 @@ Accurate segmentation and quantification of cells in light microscopy images rem
 
 ### Models
 
-The proposed approach combines **a count prediction network** with **a slot-based instance segmentation model**. A retrained **ResNet18 classifier** first **predicts the number of cells** present in an embryo image, while a second model based on a **ResNet18 encoder and U-Net decoder** performs **instance segmentation** using four fixed output slots with permutation-invariant training, see Fig. 1.
+The proposed approach combines **a count prediction network** with **a slot-based instance segmentation model**. A retrained **ResNet18 classifier** first **predicts the number of cells** present in an embryo image, while a second model based on a **ResNet18 encoder and U-Net decoder** performs **instance segmentation** using four fixed output slots with permutation-invariant training, see Fig. 1 and a poster attached.
 
 **Figure 1:** Schematic diagram of a slot-based instance segmentation framework designed for detecting and segmenting up to four embryo instances in grayscale microscopy images.
 <img width="11250" height="6125" alt="architecture_slots_diagram_journal_grade_MC" src="https://github.com/user-attachments/assets/22f4f2a0-e785-43f0-bfc3-34b0ad7542b7" />
@@ -47,7 +47,7 @@ A final **1×1 convolution** produces four output channels corresponding to four
 The network predicts: **Slot 1** / **Slot 2** / **Slot 3** / **Slot 4**.  
 Each slot outputs logits that are converted into an instance probability map.
 
-## Permutation-Invariant Training
+### Permutation-Invariant Training
 
 Because instance ordering is arbitrary, slot assignments are treated as unordered.
 
@@ -58,22 +58,22 @@ During training:
 
 This ensures that the model learns instance segmentation independently of slot order.
 
-## Count-Guided Inference
+### Count-Guided Inference
 
-### Count Classifier
+#### Count Classifier
 The count classifier predicts the number of valid instances: **K ∈ {1, 2, 4}**.
 
-### Postprocessing
+#### Postprocessing
 Each predicted slot undergoes:
 - Sigmoid activation
 - Thresholding
 - Largest connected component extraction
 - Area and confidence filtering
 
-### Top-K Selection
+#### Top-K Selection
 Based on the predicted count \(K\), only the best \(K\) instance masks are retained, while remaining slots are discarded.
 
-## Final Outputs
+### Final Outputs
 
 The pipeline produces:
 
@@ -82,7 +82,7 @@ The pipeline produces:
 3. **Ellipse fits** derived from final segmentation masks
 4. **JSON export** containing ellipse parameters
 
-## Key Characteristics
+### Key Characteristics
 
 - Shared encoder-decoder architecture
 - Four fixed segmentation slots
@@ -90,12 +90,12 @@ The pipeline produces:
 - Count-guided selection suppresses false-positive instances
 - Supports variable numbers of embryos without requiring explicit slot identities
 
-### Annotations
+## Manual Annotations
 
 To simplify annotation and provide biologically interpretable outputs, embryonic cells were represented by ellipses manually annotated in Fiji. During training, ellipse annotations were converted into polygon masks to obtain pixel-level supervision.  
 
 The training dataset consisted of 180 annotated embryo images equally distributed among one-cell, two-cell, and four-cell developmental stages. Data augmentation included rotation, scaling, and shifting transformations, while optimization employed a combined Dice and binary cross-entropy loss. During inference, segmentation candidates are filtered according to the predicted cell count using a top-K selection strategy, followed by ellipse fitting to generate the final representation.  
 
-### Results
+## Results
 
 The standalone counting model achieved 99.9% accuracy on a test set of 1022 images, whereas the segmentation model alone reached 96.97% accuracy. Combining both approaches significantly improved effective detection performance, yielding 99.61% accuracy. These results demonstrate that integrating count-aware prediction with slot-based segmentation provides a robust and efficient framework for automated quantitative analysis of embryonic microscopy data.  
