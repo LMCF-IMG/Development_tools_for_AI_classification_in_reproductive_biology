@@ -102,6 +102,13 @@ To simplify annotation and provide biologically interpretable outputs, embryonic
 
 The training dataset consisted of 180 annotated embryo images equally distributed among one-cell, two-cell, and four-cell developmental stages. Data augmentation included rotation, scaling, and shifting transformations, while optimization employed a combined Dice and binary cross-entropy loss. During inference, segmentation candidates are filtered according to the predicted cell count using a top-K selection strategy, followed by ellipse fitting to generate the final representation.  
 
+## Inference
+
+The workflow combines a deep learning–based cell count classifier with a slot-based instance segmentation network. A ResNet18 classifier first predicts the number of cells present in the input image (K∈{1,2,4}). In parallel, a ResNet18 encoder–U-Net decoder segmentation network produces four fixed output slots, each representing a candidate cell mask. The K most relevant masks are selected according to the classifier prediction, and an ellipse is fitted to each selected mask using contour-based ellipse fitting. The resulting ellipse representations provide compact, interpretable descriptions of individual cells while suppressing spurious detections and enabling robust quantitative analysis.
+
+**Figure 4:** Overview of the proposed embryo cell analysis pipeline.
+<img width="9504" height="2406" alt="Figure_4-Smaller" src="https://github.com/user-attachments/assets/3c0446df-3b83-4c53-8487-9e881808f920" />
+
 ## Results
 
 The standalone counting model achieved 99.9% accuracy on a test set of 1022 images, whereas the segmentation model alone reached 96.97% accuracy. Combining both approaches significantly improved effective detection performance, yielding 99.61% accuracy. These results demonstrate that integrating count-aware prediction with slot-based segmentation provides a robust and efficient framework for automated quantitative analysis of embryonic microscopy data.  
