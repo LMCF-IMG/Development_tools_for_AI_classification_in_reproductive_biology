@@ -15,7 +15,7 @@ Accurate segmentation and quantification of cells in light microscopy images rem
 
 ### Models
 
-The proposed approach combines **a count prediction network** with **a slot-based instance segmentation model**. A retrained **ResNet18 classifier** first **predicts the number of cells** present in an embryo image, while a second model based on a **ResNet18 encoder and U-Net decoder** performs **instance segmentation** using four fixed output slots with permutation-invariant training, see Fig. 1 and a poster attached.
+The proposed approach combines **a count prediction network** with **a slot-based instance segmentation model**. A retrained **ResNet18 classifier** first **predicts the number of cells** present in an embryo image, while a second model based on a **ResNet18 encoder and U-Net decoder** performs **instance segmentation** using four fixed output slots with permutation-invariant training, see Fig. 1 and a **poster** attached.
 
 **Figure 1:** Schematic diagram of a slot-based instance segmentation framework designed for detecting and segmenting up to four embryo instances in grayscale microscopy images.
 <img width="11250" height="6125" alt="architecture_slots_diagram_journal_grade_MC" src="https://github.com/user-attachments/assets/22f4f2a0-e785-43f0-bfc3-34b0ad7542b7" />
