@@ -123,7 +123,7 @@ Performance of the pipeline was evaluated on **1,022 microscopy images** and com
 
 ### 01_cellcount_cnn_vscode_verbose_v2.py
 
-The first script trains and evaluates a convolutional neural network (ResNet18 or EfficientNet-B0) to classify human embryo microscopy images into 1-, 2-, or 4-cell stages, and supports subsequent inference on new images.
+The **first** script trains and evaluates a convolutional neural network (ResNet18 or EfficientNet-B0) to classify human embryo microscopy images into 1-, 2-, or 4-cell stages, and supports subsequent inference on new images.
 
 **Input.** The pipeline processes 8-bit grayscale microscopy images (400 × 400 pixels) of human embryos. The number of cells is encoded in the image filename, allowing automatic assignment of class labels (1-, 2-, or 4-cell embryos). The dataset is split at the embryo level to prevent data leakage between training, validation, and testing. 
 
@@ -133,7 +133,7 @@ The first script trains and evaluates a convolutional neural network (ResNet18 o
 
 ### 02_export_fiji_rois_to_ellipses.py
 
-The second script converts Fiji/ImageJ ROI annotations of embryo cells into ellipse-based JSONL annotations and generates optional quality-control overlay images for training and validation.
+The **second** script converts Fiji/ImageJ ROI annotations of embryo cells into ellipse-based JSONL annotations and generates optional quality-control overlay images for training and validation.
 
 **Input.** The script takes grayscale TIFF microscopy images together with corresponding Fiji/ImageJ ROI annotations, where each ROI represents a manually annotated embryo cell. The expected number of cells is automatically extracted from the image filename and verified against the number of ROI files. 
 
