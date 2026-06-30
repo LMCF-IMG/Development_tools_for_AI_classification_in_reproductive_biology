@@ -140,3 +140,16 @@ The **second** script converts Fiji/ImageJ ROI annotations of embryo cells into 
 **Processing.** Each ROI is converted into a parametric ellipse by fitting its contour or, for oval ROIs, by using its bounding box. The extracted ellipse parameters (center coordinates, semi-major axis, semi-minor axis, and orientation) are stored in a JSONL annotation file. Optionally, quality-control overlay images with fitted ellipses and labels are generated for visual verification. 
 
 **Output.** The script produces a JSONL file containing ellipse-based annotations for all images and, optionally, overlay images visualizing the fitted ellipses on the original microscopy images to facilitate annotation quality assessment. 
+
+### 03_M6_train_segmentation.py
+
+The **third** script trains and validates a ResNet18-based U-Net for count-aware slot-based embryo cell segmentation using ellipse annotations, geometry-consistent data augmentation, and permutation-invariant loss, while automatically saving the best-performing models and evaluation results.
+
+**Input.** The script uses grayscale microscopy images together with ellipse-based JSONL annotations generated from Fiji/ImageJ ROIs. The dataset is automatically split into training and validation subsets while preserving the distribution of embryo cell counts. 
+
+**Processing.** A ResNet18-based U-Net is trained to predict four fixed segmentation slots corresponding to potential embryo cells. Training incorporates geometry-consistent data augmentation (rotation, scaling, translation, and flipping), permutation-invariant BCE + Dice loss, early stopping, and learning-rate scheduling. Model performance is monitored using validation Dice scores, loss curves, per-class metrics, and qualitative prediction previews. 
+
+**Output.** The script saves the best-performing segmentation models, training statistics, learning curves, validation preview images, and a JSON file containing the complete training history and evaluation metrics. 
+
+
+
