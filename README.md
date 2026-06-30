@@ -153,7 +153,7 @@ The **third** script trains and validates a ResNet18-based U-Net for count-aware
 
 ### 04_M9_inference_for_unknown_data_full_export_v2.py
 
-The fourth script performs fully automated inference on previously unseen embryo images by combining cell-count classification with slot-based segmentation, exporting ellipse-based cell annotations together with comprehensive visualization and evaluation reports.
+The **fourth** script performs fully automated inference on previously unseen embryo images by combining cell-count classification with slot-based segmentation, exporting ellipse-based cell annotations together with comprehensive visualization and evaluation reports.
 
 **Input.** The script processes previously unseen grayscale microscopy images using pretrained cell-count classification and slot-based segmentation models. If available, the expected cell count is extracted from the image filename for evaluation purposes. 
 
