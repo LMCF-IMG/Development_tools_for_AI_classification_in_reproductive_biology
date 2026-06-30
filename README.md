@@ -121,3 +121,22 @@ Performance of the pipeline was evaluated on **1,022 microscopy images** and com
 
 ## Codes
 
+### 01_cellcount_cnn_vscode_verbose_v2.py
+
+The first script trains and evaluates a convolutional neural network (ResNet18 or EfficientNet-B0) to classify human embryo microscopy images into 1-, 2-, or 4-cell stages, and supports subsequent inference on new images.
+
+**Input.** The pipeline processes 8-bit grayscale microscopy images (400 × 400 pixels) of human embryos. The number of cells is encoded in the image filename, allowing automatic assignment of class labels (1-, 2-, or 4-cell embryos). The dataset is split at the embryo level to prevent data leakage between training, validation, and testing. 
+
+**Processing.** Images are converted to three-channel inputs and normalized before being passed through a CNN classifier (ResNet18 or EfficientNet-B0). During training, extensive data augmentation is applied, including random flips, rotations, affine transformations, intensity variations, and Gaussian blur. The pipeline supports pretrained models, class balancing via weighted loss or oversampling, mixed-precision training, early stopping, learning-rate scheduling, and comprehensive logging. Model performance is evaluated using accuracy, macro F1-score, classification reports, and confusion matrices. 
+
+**Output.** The trained model predicts the embryo cell count (1, 2, or 4 cells) together with class probabilities. During training, the pipeline saves the best-performing model checkpoint, validation reports, confusion matrices, and final evaluation statistics. In inference mode, predictions for all processed images are exported to a CSV file containing the predicted class and associated confidence scores. 
+
+### 02_export_fiji_rois_to_ellipses.py
+
+The second script converts Fiji/ImageJ ROI annotations of embryo cells into ellipse-based JSONL annotations and generates optional quality-control overlay images for training and validation.
+
+**Input.** The script takes grayscale TIFF microscopy images together with corresponding Fiji/ImageJ ROI annotations, where each ROI represents a manually annotated embryo cell. The expected number of cells is automatically extracted from the image filename and verified against the number of ROI files. 
+
+**Processing.** Each ROI is converted into a parametric ellipse by fitting its contour or, for oval ROIs, by using its bounding box. The extracted ellipse parameters (center coordinates, semi-major axis, semi-minor axis, and orientation) are stored in a JSONL annotation file. Optionally, quality-control overlay images with fitted ellipses and labels are generated for visual verification. 
+
+**Output.** The script produces a JSONL file containing ellipse-based annotations for all images and, optionally, overlay images visualizing the fitted ellipses on the original microscopy images to facilitate annotation quality assessment. 
