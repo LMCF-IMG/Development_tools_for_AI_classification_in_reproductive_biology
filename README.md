@@ -151,5 +151,14 @@ The **third** script trains and validates a ResNet18-based U-Net for count-aware
 
 **Output.** The script saves the best-performing segmentation models, training statistics, learning curves, validation preview images, and a JSON file containing the complete training history and evaluation metrics. 
 
+#### 04_M9_inference_for_unknown_data_full_export_v2.py
+
+The fourth script performs fully automated inference on previously unseen embryo images by combining cell-count classification with slot-based segmentation, exporting ellipse-based cell annotations together with comprehensive visualization and evaluation reports.
+
+**Input.** The script processes previously unseen grayscale microscopy images using pretrained cell-count classification and slot-based segmentation models. If available, the expected cell count is extracted from the image filename for evaluation purposes. 
+
+**Processing.** A count classifier first predicts the number of embryo cells (1, 2, or 4), after which a ResNet18-based U-Net generates four candidate segmentation masks. The top-*K* masks are selected according to the predicted count, converted into fitted ellipses, and used to create instance label images, visualization overlays, and quantitative performance summaries. 
+
+**Output.** The script exports ellipse annotations (JSON), overlay and instance-label images, summary CSV/JSON reports, confusion matrices, mismatch logs, and evaluation statistics, including classification performance and mask-to-ellipse self-consistency metrics. 
 
 
