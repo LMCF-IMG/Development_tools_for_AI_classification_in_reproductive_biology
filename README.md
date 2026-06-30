@@ -151,7 +151,7 @@ The **third** script trains and validates a ResNet18-based U-Net for count-aware
 
 **Output.** The script saves the best-performing segmentation models, training statistics, learning curves, validation preview images, and a JSON file containing the complete training history and evaluation metrics. 
 
-#### 04_M9_inference_for_unknown_data_full_export_v2.py
+### 04_M9_inference_for_unknown_data_full_export_v2.py
 
 The fourth script performs fully automated inference on previously unseen embryo images by combining cell-count classification with slot-based segmentation, exporting ellipse-based cell annotations together with comprehensive visualization and evaluation reports.
 
