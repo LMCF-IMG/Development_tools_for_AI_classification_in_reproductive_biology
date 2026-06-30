@@ -163,7 +163,7 @@ The **fourth** script performs fully automated inference on previously unseen em
 
 ## Trained models and example images
 
-vysvětlit obrazky, čísla, časy, foc=preprocessing, další čísla 1,2,4, orig vs. další obrázky
+vysvětlit obrazky, čísla, časy, foc=preprocessing, stručně popsat kroky preprocessingu, další čísla 1,2,4, orig vs. další obrázky
 
 ## How to use the codes and the models
 
