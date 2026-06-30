@@ -163,4 +163,8 @@ The **fourth** script performs fully automated inference on previously unseen em
 
 ## Trained models and example images
 
+vysvětlit obrazky, čísla, časy, foc, další čísla 1,2,4, orig vs. další obrázky
+
 ## How to use the codes and the models
+
+vs code, upravit cesty k obrázkům a modelům, včetně názvů modelů, připravit python prostředí - yml soubor
