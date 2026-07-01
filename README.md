@@ -163,7 +163,14 @@ The **fourth** script performs fully automated inference on previously unseen em
 
 ## Trained models and example images
 
-vysvětlit obrazky, čísla, časy, foc=preprocessing, stručně popsat kroky preprocessingu, další čísla 1,2,4, orig vs. další obrázky
+### Image preprocessing
+
+Before deep learning analysis, the original JPEG microscopy images underwent three preprocessing steps to improve image quality and facilitate subsequent analysis. **First**, *JPEG compression artifacts* were removed using the (Restormer image restoration network)[https://github.com/swz30/Restormer], reducing strong compression-induced distortions while preserving biological structures. **Second**, the three focal planes acquired at each time point were fused into a single all-in-focus image using (Helicon Focus)[https://www.heliconsoft.com/heliconsoft-products/helicon-focus/], producing a sharp image containing the best-focused structures from all focal planes. **Third**, the embryo was automatically segmented from the background using (Cellpose-SAM)[https://github.com/mouseland/cellpose], and the resulting embryo region was cropped to provide a standardized input for the subsequent cell count classification and slot-based cell segmentation pipeline.
+
+
+vysvětlit obrazky, čísla, časy, foc=preprocessing, další čísla 1,2,4, orig vs. další obrázky, odkaz na ně
+
+(Images and Models)[https://owncloud.cesnet.cz/index.php/s/fhURkAHknvm9mH7]
 
 ## How to use the codes and the models
 
