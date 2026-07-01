@@ -161,7 +161,7 @@ The **fourth** script performs fully automated inference on previously unseen em
 
 **Output.** The script exports ellipse annotations (JSON), overlay and instance-label images, summary CSV/JSON reports, confusion matrices, mismatch logs, and evaluation statistics, including classification performance and mask-to-ellipse self-consistency metrics. 
 
-## Trained models and example images
+## Example images and trained models
 
 ### Image preprocessing
 
