@@ -195,6 +195,10 @@ The archive **`example_images_with_results.zip`** is organized into four subfold
 
 [Images and Models for downloading](https://owncloud.cesnet.cz/index.php/s/fhURkAHknvm9mH7)
 
-## How to use the codes and the models
+### How to use the codes and the models
 
-vs code, upravit cesty k obrázkům a modelům, včetně názvů modelů, připravit python prostředí - yml soubor
+The scripts were designed to be run from **Visual Studio Code**. Before running them, install the required Python environment using the provided **`environment.yml`** file. This environment was prepared primarily for **GPU-based execution**, so minor adjustments may be needed for CPU-only systems.
+
+After setting up the environment, open the scripts in VS Code and update the paths to the input images, output folders, and model checkpoints according to your local directory structure. Also make sure that the model filenames in the code match the final model names provided in the repository.
+
+Once the paths and model names are correctly set, the scripts can be run directly from VS Code to perform preprocessing, training, evaluation, or inference depending on the selected script.
