@@ -71,7 +71,7 @@ Each predicted slot undergoes:
 - Area and confidence filtering
 
 #### Top-K Selection
-Based on the predicted count \(K\), only the best \(K\) instance masks are retained, while remaining slots are discarded.
+Based on the predicted count \(**K**\), only the best \(**K**\) instance masks are retained, while remaining slots are discarded.
 
 ### Final Outputs
 
