@@ -186,9 +186,9 @@ The link to repository below includes the following supporting files:
 * **`models.zip`** – pretrained deep learning models used for cell count classification and slot-based cell segmentation during inference.
 * **`example_images_with_results.zip`** – a collection of representative input images together with the corresponding inference outputs, including segmentation results and fitted ellipse visualizations, demonstrating the complete analysis pipeline.
 
-The archive with images is organized into four subfolders containing different representations of the inference results:
+The archive **`example_images_with_results.zip`** is organized into four subfolders containing different representations of the inference results:
 
-* **`01_images_orig`** – original input microscopy images.
+* **`01_images_orig`** – original preprocessed input microscopy images.
 * **`02_images_instance_labels_color`** – color-coded instance segmentation maps, where each detected cell is assigned a unique label and displayed in a different color.
 * **`03_images_instance_labels_overlay`** – the original images overlaid with the color-coded instance segmentation masks for visual inspection.
 * **`04_images_fitted_ellipses_overlay`** – the original images overlaid with the ellipse representations fitted to the detected cell masks, providing the final geometric description of each detected cell.
